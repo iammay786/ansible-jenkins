@@ -1,8 +1,8 @@
 pipeline {
-  agent{label "${LABEL_NAME}"}
+  agent { label "${LABEL_NAME}" }
 
- stages{
-   stage('CODE') 
+ stages {
+   stage('CODE') {
      steps {
        git url:"https://github.com/iammay786/ansible-jenkins.git" , branch: "main"
      }
