@@ -7,7 +7,7 @@ tasks:
   - name: docker container run
     docker_container:
       name: web
-      image: mgmix:latest
+      image: ngnix:latest
       tty: true
       state: started
       ports:
