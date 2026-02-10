@@ -8,7 +8,6 @@ tasks:
     docker_container:
       name: web
       image: mgmix:latest
-      tag: latest 
       tty: true
       state: started
       ports:
