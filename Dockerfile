@@ -9,4 +9,4 @@
 	COPY app.py
 
 	# Run the app
-	CMD ["python", "sample.py"]
+	CMD ["python", "app.py"]
