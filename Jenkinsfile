@@ -1,6 +1,12 @@
 pipeline {
   agent { label "${LABEL_NAME}" }
 
+  enviroment {
+    IMAGE_NAME = "myapp"
+    IMAGE_TAG = "${BUILD_NUMBER}"
+    CONATINER_NAME = "myapp-container"
+  }
+  
  stages {
    stage('CODE') {
      steps {
@@ -14,6 +20,10 @@ pipeline {
          playbook: 'ansible/deploy.yml',
          inventory: 'ansible/hosts.ini',
          credentialsId: '${SSH_KEY}'
+          --extra-vars '{"image_name":"${IMAGE_NAME}","image_tag":"${IMAGE_TAG}","container_name":"${CONTAINER_NAME}"}'
+                    """,
+                    colorized: true,
+                    disableHostKeyChecking: true
          )
      }
    }
