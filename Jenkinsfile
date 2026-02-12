@@ -19,7 +19,7 @@ pipeline {
        ansiblePlaybook(
          playbook: 'ansible/deploy.yml',
          inventory: 'ansible/hosts.ini',
-         credentialsId: '${SSH_KEY}'
+         credentialsId: '${SSH_KEY}',
           --extra-vars '{"image_name":"${IMAGE_NAME}","image_tag":"${IMAGE_TAG}","container_name":"${CONTAINER_NAME}"}'
                     """,
                     colorized: true,
