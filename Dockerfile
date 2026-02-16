@@ -6,7 +6,7 @@
 	WORKDIR /app
 
 	# Copy Python file
-	COPY app.py
+	COPY app.py .
 
 	EXPOSE 8090
 
