@@ -12,28 +12,21 @@
 
   tasks:
     - name: Build Docker image
-      docker_image:
+      community.docker.docker_image:
         name: "{{ image_name }}"
         tag: "{{ image_tag }}"
         build:
           path: "{{ playbook_dir }}/.."
         source: build
-        force_source: yes
+        force_source: true
 
-    - name: Stop existing container (if running)
-      docker_container:
-        name: "{{ container_name }}"
-        state: stopped
-      ignore_errors: true
-
-    - name: Remove existing container
-      docker_container:
+    - name: Remove existing container if present
+      community.docker.docker_container:
         name: "{{ container_name }}"
         state: absent
-      ignore_errors: true
 
     - name: Run new container
-      docker_container:
+      community.docker.docker_container:
         name: "{{ container_name }}"
         image: "{{ image_name }}:{{ image_tag }}"
         state: started
