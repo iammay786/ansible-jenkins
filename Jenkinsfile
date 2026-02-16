@@ -4,7 +4,7 @@ pipeline {
   environment {
     IMAGE_NAME = "myapp"
     IMAGE_TAG = "${BUILD_NUMBER}"
-    CONATINER_NAME = "myapp-container"
+    CONTAINER_NAME = "myapp-container"
   }
   
  stages {
